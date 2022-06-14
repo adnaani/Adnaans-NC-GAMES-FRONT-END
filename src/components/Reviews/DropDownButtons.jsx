@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { getAllCategories, getAllReviews } from "../../utils/api";
-
+import "./Reviews.css";
 const DropDownBtn = ({
   setOrderBy,
   setCategory,
@@ -32,9 +32,13 @@ const DropDownBtn = ({
   };
 
   return (
-    <>
+    <div className="dropdown-btn">
       <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle
+          style={{ border: "2px solid purple" }}
+          variant="light"
+          id="dropdown-basic"
+        >
           Category
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -61,7 +65,11 @@ const DropDownBtn = ({
       </Dropdown>
 
       <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle
+          style={{ border: "2px solid purple" }}
+          variant="light"
+          id="dropdown-basic"
+        >
           Order by
         </Dropdown.Toggle>
         <Dropdown.Menu>
@@ -86,7 +94,7 @@ const DropDownBtn = ({
           })}
         </Dropdown.Menu>
       </Dropdown>
-    </>
+    </div>
   );
 };
 
