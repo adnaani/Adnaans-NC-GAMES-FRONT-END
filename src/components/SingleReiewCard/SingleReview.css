@@ -22,10 +22,6 @@ header h5 {
   color: black;
 }
 
-.votes {
-  justify-content: center;
-  /* align-self: flex-start; */
-}
 .comment-btn {
   margin: 1rem;
 }
@@ -54,9 +50,6 @@ header h5 {
   margin: 0.7rem;
 }
 
-.votes p {
-  margin: 0.6rem;
-}
 body img {
   width: 100%;
   height: auto;

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getReviewById } from "../../utils/api";
-import * as BiIcons from "react-icons/bi";
 import * as MdIcons from "react-icons/md";
 import "./SingleReview.css";
+import Votes from "../Votes/Votes";
 
 const SingleReview = () => {
   const [review, setReview] = useState([]);
@@ -44,11 +44,7 @@ const SingleReview = () => {
       </section>
       <span className="review-container">{review.review_body}</span>
 
-      <section className="votes">
-        <BiIcons.BiUpvote className="vote-btn" />
-        <p>{review.votes}</p>
-        <BiIcons.BiDownvote className="vote-btn" />
-      </section>
+      <Votes review_id={review_id} votes={review.votes} />
       <button className="comment-btn">Load Comments</button>
     </body>
   );
