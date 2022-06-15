@@ -27,7 +27,9 @@ const DropDownBtn = ({}) => {
           Category
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item>Select All</Dropdown.Item>
+          <Dropdown.Item onClick={() => navigate(`/reviews`)}>
+            Select All
+          </Dropdown.Item>
           {menuItems.map((categories) => {
             return (
               <Dropdown.Item
