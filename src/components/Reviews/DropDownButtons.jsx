@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getAllCategories, getAllReviews } from "../../utils/api";
+
 import "./Reviews.css";
-const DropDownBtn = ({
-  setOrderBy,
-  setCategory,
-  setIsCategoryValid,
-  setIsOrderByValid,
-}) => {
+
+const DropDownBtn = ({}) => {
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
@@ -16,20 +14,7 @@ const DropDownBtn = ({
     });
   }, []);
 
-  const showCategories = (categories, sort_by, order) => {
-    getAllReviews(categories).then((filterFromApi) => {
-      setCategory(filterFromApi);
-      setIsCategoryValid(true);
-    });
-  };
-
-  const showOrderBy = (categories, sort_by, order) => {
-    getAllReviews(order).then((filterOrderFromApi) => {
-      setOrderBy(filterOrderFromApi);
-      console.log(filterOrderFromApi);
-      setIsOrderByValid(true);
-    });
-  };
+  const navigate = useNavigate();
 
   return (
     <div className="dropdown-btn">
@@ -42,20 +27,12 @@ const DropDownBtn = ({
           Category
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item
-            onClick={(e) => {
-              setIsCategoryValid(false);
-            }}
-          >
-            Select All
-          </Dropdown.Item>
+          <Dropdown.Item>Select All</Dropdown.Item>
           {menuItems.map((categories) => {
             return (
               <Dropdown.Item
-                onClick={(e) => {
-                  showCategories(categories.slug);
-                }}
-                key={categories.slug}
+                key={`${categories.slug}`}
+                onClick={() => navigate(`/categories/${categories.slug}`)}
               >
                 {categories.slug}
               </Dropdown.Item>
@@ -73,24 +50,9 @@ const DropDownBtn = ({
           Order by
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item
-            onClick={(e) => {
-              setIsOrderByValid(false);
-            }}
-          >
-            Select All
-          </Dropdown.Item>
+          <Dropdown.Item>Select All</Dropdown.Item>
           {["ASC", "DESC"].map((order) => {
-            return (
-              <Dropdown.Item
-                onClick={(e) => {
-                  showOrderBy(order);
-                }}
-                key={order}
-              >
-                {order}
-              </Dropdown.Item>
-            );
+            return <Dropdown.Item key={order}>{order}</Dropdown.Item>;
           })}
         </Dropdown.Menu>
       </Dropdown>
