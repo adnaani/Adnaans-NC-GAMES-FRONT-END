@@ -1,0 +1,5 @@
+.dropdown-btn {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px;
+}
