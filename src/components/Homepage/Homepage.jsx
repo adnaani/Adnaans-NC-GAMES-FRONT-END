@@ -43,8 +43,7 @@ const Homepage = () => {
             {category.map(({ slug }) => {
               return (
                 <li key={slug}>
-                  <Link to="/reviews">
-                    {/* use the link to filter the slug */}
+                  <Link to={`/categories/${slug}`}>
                     <buttons>{slug}</buttons>
                   </Link>
                 </li>
