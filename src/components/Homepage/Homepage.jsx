@@ -3,16 +3,7 @@ import { Link } from "react-router-dom";
 import { getAllCategories } from "../../utils/api";
 
 const Homepage = () => {
-  const [category, setCategory] = useState([
-    {
-      description: "Players attempt to uncover each other's hidden role",
-      slug: "Social deduction",
-    },
-    {
-      description: "Uncover each other's hidden personas",
-      slug: "Social something",
-    },
-  ]);
+  const [category, setCategory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
