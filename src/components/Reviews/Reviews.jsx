@@ -10,7 +10,6 @@ const Reviews = () => {
 
   const { category_name } = useParams();
 
-  console.log(category_name);
   useEffect(() => {
     getAllReviews(category_name).then((categoriesFromApi) => {
       setReviews(categoriesFromApi);
