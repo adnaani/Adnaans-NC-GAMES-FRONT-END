@@ -8,15 +8,29 @@ import "./SingleReview.css";
 const SingleReview = () => {
   const [review, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState({ boolean: false });
 
   const { review_id } = useParams();
 
   useEffect(() => {
-    getReviewById(review_id).then((reviewFromApi) => {
-      setReview(reviewFromApi);
-      setIsLoading(false);
-    });
+    getReviewById(review_id)
+      .then((reviewFromApi) => {
+        setReview(reviewFromApi);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsError({ boolean: true, err });
+      });
   }, [review_id]);
+
+  if (isError.boolean) {
+    return (
+      <h1>
+        <BiIcons.BiCommentError />
+        {isError.err.response.data.message}
+      </h1>
+    );
+  }
 
   if (isLoading) {
     return <h1>Loading....</h1>;
