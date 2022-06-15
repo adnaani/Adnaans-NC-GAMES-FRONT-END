@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Dropdown from "react-bootstrap/Dropdown";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { getAllCategories, getAllReviews } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
+import { getAllCategories } from "../../utils/api";
 
 import "./Reviews.css";
 
