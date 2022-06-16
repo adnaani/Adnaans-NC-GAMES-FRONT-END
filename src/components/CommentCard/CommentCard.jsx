@@ -1,6 +1,6 @@
 import React from "react";
 import * as BiIcons from "react-icons/bi";
-
+import "./CommentCard.css";
 const CommentCard = ({ comment }) => {
   return (
     <div key={comment.comment_id} className="comment">
