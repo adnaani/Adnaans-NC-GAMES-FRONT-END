@@ -26,7 +26,7 @@ const Votes = ({ review_id, votes }) => {
   return (
     <section className="votes">
       <button
-        className="vote-btn"
+        className={voteInc === 1 ? "up-vote-btn" : "vote-btn"}
         onClick={() => handleClick(+1)}
         disabled={voteInc > 0}
       >
@@ -35,7 +35,7 @@ const Votes = ({ review_id, votes }) => {
 
       <p>{votes + voteInc}</p>
       <button
-        className="vote-btn"
+        className={voteInc === -1 ? "down-vote-btn" : "vote-btn"}
         onClick={() => handleClick(-1)}
         disabled={voteInc < 0}
       >

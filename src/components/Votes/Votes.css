@@ -4,6 +4,13 @@
 .votes p {
   margin: 0.6rem;
 }
+
+.up-vote-btn {
+  color: green;
+}
+.down-vote-btn {
+  color: red;
+}
 button {
   background: none;
   color: inherit;
