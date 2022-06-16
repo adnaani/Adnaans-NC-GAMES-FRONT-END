@@ -13,8 +13,6 @@ const Homepage = () => {
     });
   }, []);
 
-  const showReviewsByCategory = () => {};
-
   if (isLoading) {
     return <h1>Loading....</h1>;
   }
@@ -35,7 +33,7 @@ const Homepage = () => {
               return (
                 <li key={slug}>
                   <Link to={`/categories/${slug}`}>
-                    <buttons>{slug}</buttons>
+                    <button>{slug}</button>
                   </Link>
                 </li>
               );

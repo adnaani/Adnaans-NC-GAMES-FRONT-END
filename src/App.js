@@ -5,7 +5,7 @@ import Reviews from "./components/Reviews/Reviews";
 import Homepage from "./components/Homepage/Homepage";
 import Navbar from "./components/Navbar/Navbar";
 import Categories from "./components/Categories/Categories";
-import SingleReview from "./components/SingleReiewCard/SingleReview";
+import SingleReview from "./components/SingleReviewCard/SingleReview";
 
 function App() {
   return (

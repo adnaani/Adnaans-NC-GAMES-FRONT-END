@@ -9,21 +9,35 @@ import Votes from "../Votes/Votes";
 const SingleReview = () => {
   const [review, setReview] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState({ boolean: false });
 
   const { review_id } = useParams();
 
   useEffect(() => {
-    getReviewById(review_id).then((reviewFromApi) => {
-      setReview(reviewFromApi);
-      setIsLoading(false);
-    });
+    getReviewById(review_id)
+      .then((reviewFromApi) => {
+        setReview(reviewFromApi);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsError({ boolean: true, err });
+      });
   }, [review_id]);
+
+  if (isError.boolean) {
+    return (
+      <h1>
+        <BiIcons.BiCommentError />
+        {isError.err.response.data.message}
+      </h1>
+    );
+  }
 
   if (isLoading) {
     return <h1>Loading....</h1>;
   }
   return (
-    <body className="page-container">
+    <div className="page-container">
       <div className="polaroid">
         <img src={review.review_img_url} alt={review.title} width="170px" />
         <div className="container">
@@ -46,7 +60,6 @@ const SingleReview = () => {
       <span className="review-container">{review.review_body}</span>
 
       <Votes review_id={review_id} votes={review.votes} />
-
       <section className="load-comment-container">
         <Link
           to={`/reviews/${review_id}/comments`}
@@ -56,7 +69,7 @@ const SingleReview = () => {
           Load Comments
         </Link>
       </section>
-    </body>
+    </div>
   );
 };
 
