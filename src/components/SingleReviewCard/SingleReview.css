@@ -22,9 +22,33 @@ header h5 {
   color: black;
 }
 
-.comment-btn {
-  margin: 1rem;
+.load-comment-container {
+  margin: 12px;
+  border: solid rgb(173, 103, 227) 3px;
+  border-radius: 12px;
 }
+
+.comment-btn {
+  margin: 0.3rem;
+  width: 25px;
+  height: 25px;
+  align-self: center;
+  color: rgb(173, 103, 227);
+}
+
+.comment-btn-link {
+  margin: 1rem;
+
+  text-decoration: none;
+  color: rgb(173, 103, 227);
+}
+
+/* .comment-btn {
+  border-radius: 12px;
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+} */
 
 .polaroid {
   border-radius: 8px;

@@ -24,8 +24,10 @@ export const getAllCategories = () => {
   });
 };
 
-export const updateVotes = () => {
-  return gamesApi.patch("/reviews/:review_id").then(({ data }) => {
-    return data.reviews;
-  });
+export const updateVotes = (review_id, inc_votes) => {
+  return gamesApi
+    .patch(`/reviews/${review_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data.reviews;
+    });
 };
