@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage/Homepage";
 import Navbar from "./components/Navbar/Navbar";
 import Categories from "./components/Categories/Categories";
 import SingleReview from "./components/SingleReviewCard/SingleReview";
+import Comments from "./components/Comments/Comments";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/categories/:category_name" element={<Reviews />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/reviews/:review_id" element={<SingleReview />} />
-          <Route path="/reviews/:review_id/comments" />
+          <Route path="/reviews/:review_id/comments" element={<Comments />} />
         </Routes>
       </div>
     </BrowserRouter>
