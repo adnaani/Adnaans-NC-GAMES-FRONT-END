@@ -15,25 +15,32 @@ const Votes = ({ review_id, votes }) => {
       }
     });
     updateVotes(review_id, click).catch((err) => {
-      setVoteInc((currVotes) => {
-        return currVotes + 0;
-      });
+      if (1 === click) {
+        setVoteInc((currVotes) => currVotes - 1);
+      } else {
+        setVoteInc((currVotes) => currVotes + 1);
+      }
     });
   };
 
   return (
     <section className="votes">
-      <BiIcons.BiUpvote
+      <button
         className="vote-btn"
         onClick={() => handleClick(+1)}
         disabled={voteInc > 0}
-      />
+      >
+        <BiIcons.BiUpvote />
+      </button>
+
       <p>{votes + voteInc}</p>
-      <BiIcons.BiDownvote
+      <button
         className="vote-btn"
         onClick={() => handleClick(-1)}
-        disabled={voteInc > 0}
-      />
+        disabled={voteInc < 0}
+      >
+        <BiIcons.BiDownvote />
+      </button>
     </section>
   );
 };
