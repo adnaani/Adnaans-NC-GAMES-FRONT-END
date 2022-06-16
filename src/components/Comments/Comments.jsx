@@ -16,23 +16,24 @@ const Comments = () => {
     });
   }, [review_id]);
 
-  console.log(comments);
   if (isLoading) {
     return <h1>Loading....</h1>;
   }
 
   return (
     <div className="comments">
-      {comments.length === 0 ? (
-        <h3 className="comments-title">Be the First Comment</h3>
-      ) : (
-        <h3 className="comments-title">{comments.length} Comments</h3>
-      )}
-      <div className="comments-container">
-        {comments.map((comment) => (
-          <CommentCard key={comment.comment_id} comment={comment} />
-        ))}
+      <div className="title-container">
+        {comments.length === 0 ? (
+          <h3 className="comments-title">Be the first to comment</h3>
+        ) : (
+          <h3 className="comments-title">{comments.length} Comments</h3>
+        )}
       </div>
+      <ul className="comments-container">
+        {comments.map((comment) => {
+          return <CommentCard key={comment.comment_id} comment={comment} />;
+        })}
+      </ul>
     </div>
   );
 };
