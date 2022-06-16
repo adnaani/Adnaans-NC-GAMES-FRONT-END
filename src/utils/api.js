@@ -42,6 +42,6 @@ export const createCommentById = (review_id, newComment) => {
   return gamesApi
     .post(`reviews/${review_id}/comments`, { ...newComment })
     .then(({ data }) => {
-      return data.comments;
+      return data.comment;
     });
 };

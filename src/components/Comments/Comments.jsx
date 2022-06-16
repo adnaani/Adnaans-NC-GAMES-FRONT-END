@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getCommentsById } from "../../utils/api";
+import { createCommentById, getCommentsById } from "../../utils/api";
 import CommentCard from "../CommentCard/CommentCard";
+import CommentForm from "../CommentForm/CommentForm";
 
 const Comments = () => {
   const [comments, setComments] = useState([]);
@@ -16,9 +17,20 @@ const Comments = () => {
     });
   }, [review_id]);
 
+  const addComment = (newComment) => {
+    createCommentById(review_id, newComment).then((postCommentFromAPI) => {
+      setComments((prevComment) => [...prevComment, postCommentFromAPI]);
+    });
+  };
+
   if (isLoading) {
     return <h1>Loading....</h1>;
   }
+
+  comments.sort(
+    (a, b) =>
+      new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  );
 
   return (
     <div className="comments">
@@ -29,6 +41,8 @@ const Comments = () => {
           <h3 className="comments-title">{comments.length} Comments</h3>
         )}
       </div>
+
+      <CommentForm submitLabel="Write" handleSubmit={addComment} />
       <ul className="comments-container">
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
