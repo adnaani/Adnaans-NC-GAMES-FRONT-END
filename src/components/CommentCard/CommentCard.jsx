@@ -10,7 +10,7 @@ const CommentCard = ({ comment }) => {
       <div className="comment-right-part">
         <div className="comment-content">
           <div className="comment-author">{comment.author}</div>
-          <div>{comment.created_at}</div>
+          <div className="time-stamp">{comment.created_at}</div>
         </div>
         <div className="comment-text">{comment.body}</div>
       </div>
