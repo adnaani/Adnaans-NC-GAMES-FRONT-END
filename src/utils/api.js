@@ -31,3 +31,9 @@ export const updateVotes = (review_id, inc_votes) => {
       return data.reviews;
     });
 };
+
+export const getCommentsById = (review_id) => {
+  return gamesApi.get(`reviews/${review_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+};
