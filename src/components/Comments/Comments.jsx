@@ -19,18 +19,13 @@ const Comments = () => {
 
   const addComment = (newComment) => {
     createCommentById(review_id, newComment).then((postCommentFromAPI) => {
-      setComments((prevComment) => [...prevComment, postCommentFromAPI]);
+      setComments((prevComment) => [postCommentFromAPI, ...prevComment]);
     });
   };
 
   if (isLoading) {
     return <h1>Loading....</h1>;
   }
-
-  comments.sort(
-    (a, b) =>
-      new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-  );
 
   return (
     <div className="comments">

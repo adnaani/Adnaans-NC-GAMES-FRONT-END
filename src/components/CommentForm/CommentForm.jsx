@@ -4,7 +4,7 @@ import { UserContext } from "../../context/userContext";
 import "./CommentForm.css";
 const CommentForm = ({ handleSubmit, submitLabel }) => {
   const [body, setBody] = useState("");
-  // const [author, setAuthor] = useState("");
+
   const isTextareaDisabled = body.length === 0;
   const onSubmit = (event) => {
     event.preventDefault();
