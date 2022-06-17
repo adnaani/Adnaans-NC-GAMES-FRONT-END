@@ -73,6 +73,29 @@
   align-items: center;
 }
 
+.logged-nav {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
+
+.user-nav > p {
+  margin-bottom: 0;
+  color: white;
+}
+
+.user-nav-image {
+  max-width: 2rem;
+  max-height: 2rem;
+  border-radius: 50px;
+  margin-right: 5px;
+}
+
+.select-user-nav {
+  text-decoration: none;
+  color: white;
+}
+
 span {
   margin-left: 16px;
 }

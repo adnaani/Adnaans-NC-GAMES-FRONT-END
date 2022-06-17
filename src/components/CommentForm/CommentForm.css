@@ -1,0 +1,13 @@
+.comment-form-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+
+.comment-form-input {
+  margin-bottom: 10px;
+}
+.comment-form-textarea {
+  margin-bottom: 10px;
+}
