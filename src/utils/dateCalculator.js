@@ -17,7 +17,8 @@ export const dateCalculator = (date) => {
       return `${Math.floor(age / 1440)} days ago`;
     case age > 60:
       return `${Math.floor(age / 60)} hours ago`;
-
+    case isNaN(age):
+      return `${0} minutes ago`;
     default:
       return `${age} minutes ago`;
   }

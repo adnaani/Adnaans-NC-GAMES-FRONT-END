@@ -38,6 +38,12 @@ export const getCommentsById = (review_id) => {
   });
 };
 
+export const getUsers = () => {
+  return gamesApi.get(`/users`).then(({ data }) => {
+    return data.users;
+  });
+};
+
 export const createCommentById = (review_id, newComment) => {
   return gamesApi
     .post(`reviews/${review_id}/comments`, { ...newComment })
