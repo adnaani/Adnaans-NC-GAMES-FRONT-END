@@ -12,7 +12,7 @@ import { UserContext } from "../../context/userContext";
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
   const { loggedUser } = useContext(UserContext);
-  console.log(loggedUser);
+
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <>
