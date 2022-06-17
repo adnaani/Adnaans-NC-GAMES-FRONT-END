@@ -5,27 +5,13 @@
   margin: 0.6rem;
 }
 
-.vote-btn {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
-
 .up-vote-btn {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
   color: green;
 }
 .down-vote-btn {
+  color: red;
+}
+button {
   background: none;
   color: inherit;
   border: none;
@@ -33,5 +19,4 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
-  color: red;
 }
